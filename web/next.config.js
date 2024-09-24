@@ -15,10 +15,13 @@ const withMDX = require('@next/mdx')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config, { dev, isServer }) => {
+    if (isServer)
+      config.devtool = 'source-map'
+
     config.plugins.push(codeInspectorPlugin({ bundler: 'webpack' }))
     return config
   },
-  productionBrowserSourceMaps: false, // enable browser source map generation during the production build
+  productionBrowserSourceMaps: true, // enable browser source map generation during the production build
   // Configure pageExtensions to include md and mdx
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {

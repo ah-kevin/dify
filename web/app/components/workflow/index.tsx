@@ -122,7 +122,6 @@ const Workflow: FC<WorkflowProps> = memo(({
   const nodeAnimation = useStore(s => s.nodeAnimation)
   const showConfirm = useStore(s => s.showConfirm)
   const showImportDSLModal = useStore(s => s.showImportDSLModal)
-
   const {
     setShowConfirm,
     setControlPromptEditorRerenderKey,
