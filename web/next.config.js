@@ -15,9 +15,6 @@ const withMDX = require('@next/mdx')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config, { dev, isServer }) => {
-    if (isServer)
-      config.devtool = 'source-map'
-
     config.plugins.push(codeInspectorPlugin({ bundler: 'webpack' }))
     return config
   },
